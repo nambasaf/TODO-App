@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+}
+
+#task-input {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #4e4e4e;
+    border-radius: 5px;
+    width: 200px;
+}
+
+#description {
+    font-size: 16px;
+    color: #f95d15;
+}
+
+#pending-tasks-desc {
+    font-size: 16px;
+    color: #7b757b;
+}
+
+#completed-tasks-desc {
+    font-size: 16px;
+    color: #7b757b;
+    margin-top: 2px
+}
+
+button {
+    margin-left: 10px;
+    background-color: rgb(0, 140, 0);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: rgb(68, 88, 68);
+}

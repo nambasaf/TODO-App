@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple TODO App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>TO-DO LIST</h1>
+    <div class="container">
+        <p id="description">
+            Keep track of your daily tasks and stay organized.
+        </p>
+
+        <div id="input-container">
+            <input type="text" id="new-task" placeholder="Add a new task">
+            <button id="add-task">Add Task</button>
+        </div>
+        <h2>Pending Tasks❗</h2>
+        <p id="pending-tasks-desc">To mark as completed, click on the task.</p>
+        <ul id="task-list">
+            <!-- Tasks will be dynamically inserted here -->
+        </ul>
+
+        <div id="completed-tasks-container">
+            <h2>Completed Tasks ✅</h2>
+            <p id="completed-tasks-desc">To mark as pending, click on the task.</p>
+            <ul id="completed-tasks">
+                <!-- Completed tasks will be dynamically inserted here -->
+            </ul>
+        </div>  
+        
+    </div>
+    <script src="script.js"></script>
+        
+</body>
+</html>
