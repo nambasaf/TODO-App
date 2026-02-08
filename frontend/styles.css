@@ -179,6 +179,17 @@ li {
     animation: slideIn 0.3s ease-out;
 }
 
+#pending-tasks-desc {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+#completed-tasks-desc {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+}
 @keyframes slideIn {
     from {
         opacity: 0;
