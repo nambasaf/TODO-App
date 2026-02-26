@@ -212,6 +212,9 @@ li:hover {
     background: rgba(34, 197, 94, 0.05);
     border-color: rgba(34, 197, 94, 0.2);
     color: var(--text-muted);
+}
+
+.completed span {
     text-decoration: line-through;
 }
 
