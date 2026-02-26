@@ -47,6 +47,39 @@
             </section>
         </div>
     </main>
+
+    <div id="confirm-dialog" class="modal hidden">
+        <div class="modal-content">
+            <p>Do you want to mark this as Completed?</p>
+            <div class="modal-buttons">
+                <button id="btn-yes" class="btn btn-yes">Yes</button>
+                <button id="btn-no" class="btn btn-no">No</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="details-dialog" class="modal hidden">
+        <div class="modal-content">
+            <h3 style="margin-bottom: 1.5rem; text-align: center; color: var(--text-main);">Task Details</h3>
+            <div class="input-group">
+                <label for="task-due-date">Due Date</label>
+                <input type="date" id="task-due-date">
+            </div>
+            <div class="input-group">
+                <label for="task-link">Link</label>
+                <input type="url" id="task-link" placeholder="https://example.com">
+            </div>
+            <div class="input-group">
+                <label for="task-location">Location</label>
+                <input type="text" id="task-location" placeholder="e.g., Office, Home">
+            </div>
+            <div class="modal-buttons" style="margin-top: 1.5rem;">
+                <button id="btn-details-save" class="btn btn-yes">Save</button>
+                <button id="btn-details-cancel" class="btn btn-no">Cancel</button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 
