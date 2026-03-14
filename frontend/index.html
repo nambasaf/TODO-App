@@ -13,39 +13,134 @@
 
 <body>
     <div class="glass-bg"></div>
-    <main class="app-container">
-        <header>
-            <h1>Tasks</h1>
-            <p id="description">Organize your day with style.</p>
-        </header>
+    
+    <!-- Authentication Section -->
+    <section id="auth-section" class="auth-container">
+        <div class="auth-card">
+            <h1 id="auth-title">Welcome</h1>
+            <p id="auth-subtitle">Sign in to manage your tasks</p>
+            
+            <div id="login-form">
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="login-email" placeholder="email@example.com">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="login-password" placeholder="••••••••">
+                </div>
+                <button id="btn-login" class="btn btn-primary">Login</button>
+                <p class="auth-switch">Don't have an account? <a href="#" id="show-register">Register</a></p>
+            </div>
 
-        <section id="input-section">
-            <div id="input-container">
-                <input type="text" id="new-task" placeholder="What needs to be done?">
-                <button id="add-task">
-                    <span class="icon">+</span>
-                    <span>Add Task</span>
-                </button>
+            <div id="register-form" class="hidden">
+                <div class="input-group">
+                    <label>Name</label>
+                    <input type="text" id="register-name" placeholder="Your Name">
+                </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="register-email" placeholder="email@example.com">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="register-password" placeholder="••••••••">
+                </div>
+                <button id="btn-register" class="btn btn-primary">Register</button>
+                <p class="auth-switch">Already have an account? <a href="#" id="show-login">Login</a></p>
+            </div>
+            <p id="auth-error" class="error-msg hidden"></p>
+        </div>
+    </section>
+
+    <!-- App Container (Hidden by default) -->
+    <main class="app-container hidden" id="main-app">
+        <nav class="app-nav">
+            <button class="nav-btn active" data-view="tasks">My Tasks</button>
+            <button class="nav-btn" data-view="categories">Categories</button>
+        </nav>
+
+        <section id="tasks-view">
+            <header>
+                <div class="header-top">
+                    <h1>Tasks</h1>
+                    <button id="btn-logout" class="btn-logout">Logout</button>
+                </div>
+                <p id="description">Organize your day with style.</p>
+            </header>
+
+            <div class="filter-bar">
+                <input type="text" id="filter-search" placeholder="Search tasks...">
+                <select id="filter-category">
+                    <option value="">All Categories</option>
+                    <option value="Study">Study</option>
+                    <option value="Work">Work</option>
+                    <option value="Health">Health</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Leisure">Leisure</option>
+                    <option value="Social">Social</option>
+                </select>
+            </div>
+
+            <section id="input-section">
+                <div id="input-container">
+                    <input type="text" id="new-task" placeholder="Add a new task...">
+                    <button id="add-task">Add Task</button>
+                </div>
+            </section>
+
+            <div class="lists-wrapper">
+                <div class="pending-section">
+                    <h2>Pending <span class="badge" id="pending-count">0</span></h2>
+                    <ul id="task-list"></ul>
+                </div>
+
+                <div class="completed-section">
+                    <h2>Completed <span class="badge" id="completed-count">0</span></h2>
+                    <ul id="completed-tasks"></ul>
+                </div>
             </div>
         </section>
 
-        <div class="lists-wrapper">
-            <section class="task-section">
-                <h2>Pending <span class="badge" id="pending-count">0</span></h2>
-                <p id="pending-tasks-desc">Click on a task to mark it as completed.</p>
-                <ul id="task-list">
-                    <!-- Tasks will be dynamically inserted here -->
-                </ul>
-            </section>
-
-            <section class="task-section completed-section">
-                <h2>Completed <span class="badge" id="completed-count">0</span></h2>
-                <p id="completed-tasks-desc">Click on a task to mark it as pending.</p>
-                <ul id="completed-tasks">
-                    <!-- Completed tasks will be dynamically inserted here -->
-                </ul>
-            </section>
-        </div>
+        <!-- Categories View Section -->
+        <section id="categories-view" class="hidden">
+            <header>
+                <h1>Categories</h1>
+                <p>Overview of your task groups</p>
+            </header>
+            
+            <div class="categories-grid">
+                <div class="category-card" data-category="Study">
+                    <div class="cat-icon cat-study">📚</div>
+                    <h3>Study</h3>
+                </div>
+                <div class="category-card" data-category="Work">
+                    <div class="cat-icon cat-work">💼</div>
+                    <h3>Work</h3>
+                </div>
+                <div class="category-card" data-category="Health">
+                    <div class="cat-icon cat-health">🏥</div>
+                    <h3>Health</h3>
+                </div>
+                <div class="category-card" data-category="Personal">
+                    <div class="cat-icon cat-personal">🏠</div>
+                    <h3>Personal</h3>
+                </div>
+                <div class="category-card" data-category="Finance">
+                    <div class="cat-icon cat-finance">💰</div>
+                    <h3>Finance</h3>
+                </div>
+                <div class="category-card" data-category="Leisure">
+                    <div class="cat-icon cat-leisure">🎬</div>
+                    <h3>Leisure</h3>
+                </div>
+                <div class="category-card" data-category="Social">
+                    <div class="cat-icon cat-social">🤝</div>
+                    <h3>Social</h3>
+                </div>
+            </div>
+        </section>
     </main>
 
     <div id="confirm-dialog" class="modal hidden">
@@ -76,6 +171,22 @@
             <div class="modal-buttons" style="margin-top: 1.5rem;">
                 <button id="btn-details-save" class="btn btn-yes">Save</button>
                 <button id="btn-details-cancel" class="btn btn-no">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="category-tasks-modal" class="modal hidden">
+        <div class="modal-content" style="max-width: 500px;">
+            <header style="margin-bottom: 1.5rem;">
+                <h3 id="cat-modal-title" style="font-size: 1.5rem; color: var(--text-main);">Category Tasks</h3>
+                <p id="cat-modal-subtitle" style="color: var(--text-muted); font-size: 0.9rem;">Tasks in this group</p>
+            </header>
+            <div id="cat-tasks-container" style="max-height: 400px; overflow-y: auto; text-align: left;">
+                <!-- Tasks will be list here -->
+                <ul id="cat-tasks-list" class="cat-tasks-list"></ul>
+            </div>
+            <div class="modal-buttons" style="margin-top: 1.5rem;">
+                <button id="btn-cat-modal-close" class="btn btn-no" style="width: 100%;">Close</button>
             </div>
         </div>
     </div>
